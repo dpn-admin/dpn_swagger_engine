@@ -1,6 +1,6 @@
 // the order matches swagger-ui dist/index.html
 
-//= require './lib/object-assign-polyfill.js'
+//= require './lib/object-assign-pollyfill.js'
 //= require './lib/jquery-1.8.0.min.js'
 //= require './lib/jquery.slideto.min.js'
 //= require './lib/jquery.wiggle.min.js'
