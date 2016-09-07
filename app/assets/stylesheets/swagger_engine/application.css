@@ -1,0 +1,12 @@
+/* the order matches swagger-ui dist/index.html */
+
+@import "typography";
+@import "reset";
+@import "screen";
+
+/*
+These are loaded by views/swagger_engine/swaggers/show.html.erb, but only
+for 'print' media.
+@import "reset";
+@import "print";
+*/
