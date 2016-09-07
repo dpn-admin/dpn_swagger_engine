@@ -1,5 +1,7 @@
+# frozen_string_literal: true
 begin
   require 'bundler/setup'
+  require 'bundler/gem_tasks'
 rescue LoadError
   puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
@@ -14,9 +16,6 @@ RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-
-
-
 Bundler::GemHelper.install_tasks
 
 require 'rake/testtask'
@@ -28,5 +27,11 @@ Rake::TestTask.new(:test) do |t|
   t.verbose = false
 end
 
-
 task default: :test
+
+## Gem template code for rspec
+# require 'rspec/core/rake_task'
+#
+# RSpec::Core::RakeTask.new(:spec)
+#
+# task default: :spec

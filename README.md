@@ -1,4 +1,4 @@
-# SwaggerEngine
+# DPN SwaggerEngine
 
 Include [swagger-ui](https://github.com/swagger-api/swagger-ui) as rails engine.
 
@@ -10,7 +10,7 @@ https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md
 
 Add to Gemfile
 
-```gem 'swagger_engine'```
+```gem 'dpn_swagger_engine'```
 
 Add to your config/routes.rb
 
@@ -34,7 +34,7 @@ authenticate :user, lambda { |u| u.admin? } do
 end
 ```
 
-#### Basic http auth
+#### Basic HTTP Auth
 
 Set username and password in `config/initializers/swagger_engine.rb`:
 
@@ -47,9 +47,9 @@ end
 
 ## Configure
 
-### Json files
+### JSON files
 
-Set the path of your json files in a initializer:
+Set the path of your JSON files in a initializer:
 
 ```
 #config/initializers/swagger_engine.rb
@@ -63,16 +63,14 @@ end
 ```
 `lib/swagger/` is a good place to place them..
 
-### Edit your json files
+### Edit your JSON files
 
 Use [Swagger editor](https://github.com/swagger-api/swagger-editor).
 
 ## License
 
-This project rocks and uses MIT-LICENSE.
+This project uses the MIT-LICENSE.
 
 ## Developed in collaboration with
 
-[Rawfish](http://rawfishindustries.com)
-
-[![Rawfish Logo](http://rawfishindustries.com/wp-content/uploads/2015/03/logo_rawfish_WEB.jpg)](http://rawfishindustries.com)
+Forked from https://github.com/batdevis/swagger_engine
