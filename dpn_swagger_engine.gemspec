@@ -4,21 +4,18 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 # Maintain your gem's version:
-require 'swagger_engine/version'
+require 'dpn_swagger_engine/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
   spec.name        = 'dpn_swagger_engine'
-  spec.version     = SwaggerEngine::VERSION
+  spec.version     = DpnSwaggerEngine::VERSION
   spec.authors     = ['batdevis', 'Darren Weber']
   spec.email       = ['batdevis@gmail.com', 'dweber.consulting@gmail.com']
   spec.homepage    = 'https://github.com/dpn-admin/dpn_swagger_engine'
   spec.summary     = 'Mount swagger-ui as rails engine.'
   spec.description = 'API docs for dpn-server.'
   spec.license     = 'MIT'
-
-  # spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  # spec.test_files = Dir["test/**/*"]
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = 'exe'

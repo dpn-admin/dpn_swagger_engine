@@ -1,4 +1,4 @@
-module SwaggerEngine
+module DpnSwaggerEngine
   module SwaggerHelper
   end
 end

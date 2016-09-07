@@ -5,7 +5,7 @@
 @import "screen";
 
 /*
-These are loaded by views/swagger_engine/swaggers/show.html.erb, but only
+These are loaded by views/dpn_swagger_engine/swaggers/show.html.erb, but only
 for 'print' media.
 @import "reset";
 @import "print";

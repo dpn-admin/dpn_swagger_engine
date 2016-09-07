@@ -1,16 +1,17 @@
-module SwaggerEngine
+module DpnSwaggerEngine
   class ApplicationController < ActionController::Base
 
     before_filter :authenticate
 
     protected
+
     def authenticate
-      if SwaggerEngine.configuration.admin_username
+      config = DpnSwaggerEngine.configuration
+      if config.admin_username
         authenticate_or_request_with_http_basic do |username, password|
-          username == SwaggerEngine.configuration.admin_username && password == SwaggerEngine.configuration.admin_password
+          username == config.admin_username && password == config.admin_password
         end
       end
     end
-
   end
 end
