@@ -20,11 +20,13 @@ module SwaggerEngine
     attr_accessor :admin_username
     attr_accessor :admin_password
   end
+
   class << self
     attr_writer :configuration
   end
 
   module_function
+
   def configuration
     @configuration ||= Configuration.new
   end
@@ -32,4 +34,4 @@ module SwaggerEngine
   def configure
     yield(configuration)
   end
- end
+end
