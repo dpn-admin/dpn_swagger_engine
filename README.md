@@ -17,7 +17,7 @@ gem 'dpn_swagger_engine'
 Add to your config/routes.rb
 
 ```ruby
-mount SwaggerEngine::Engine, at: "/api-docs"
+mount DpnSwaggerEngine::Engine, at: "/api-docs"
 ```
 
 ### Protect your route
@@ -26,7 +26,7 @@ mount SwaggerEngine::Engine, at: "/api-docs"
 
 ```ruby
 authenticate :user do
-  mount SwaggerEngine::Engine, at: "/api-docs"
+  mount DpnSwaggerEngine::Engine, at: "/api-docs"
 end
 ```
 
@@ -34,7 +34,7 @@ or
 
 ```ruby
 authenticate :user, lambda { |u| u.admin? } do
-  mount SwaggerEngine::Engine, at: "/api-docs"
+  mount DpnSwaggerEngine::Engine, at: "/api-docs"
 end
 ```
 
@@ -43,7 +43,7 @@ end
 Set username and password in `config/initializers/dpn_swagger_engine.rb`:
 
 ```ruby
-SwaggerEngine.configure do |config|
+DpnSwaggerEngine.configure do |config|
   config.admin_username = ENV['ADMIN_USERNAME']
   config.admin_password = ENV['ADMIN_PASSWORD']
 end
@@ -58,7 +58,7 @@ Set the path of your JSON files in a initializer:
 ```ruby
 #config/initializers/dpn_swagger_engine.rb
 
-SwaggerEngine.configure do |config|
+DpnSwaggerEngine.configure do |config|
   config.json_files = {
     v1: "lib/swagger/swagger_v1.json",
     v2: "lib/swagger/swagger_v2.json"
