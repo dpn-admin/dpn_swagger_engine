@@ -6,14 +6,14 @@
 
   <!-- Content in this file is derived from swagger-ui:dist/index.html -->
 
-  <%#= favicon_link_tag 'favicon-32x32.png', rel: 'icon', type: 'image/png', sizes: '32x32' %>
-  <%#= favicon_link_tag 'favicon-16x16.png', rel: 'icon', type: 'image/png', sizes: '16x16' %>
+  <%= favicon_link_tag 'dpn_swagger_engine/favicon-32x32.png', rel: 'icon', type: 'image/png', sizes: '32x32' %>
+  <%= favicon_link_tag 'dpn_swagger_engine/favicon-16x16.png', rel: 'icon', type: 'image/png', sizes: '16x16' %>
 
-  <%= stylesheet_link_tag "dpn_swagger_engine/application" %>
-  <%= stylesheet_link_tag "dpn_swagger_engine/reset", media: "print" %>
-  <%= stylesheet_link_tag "dpn_swagger_engine/print", media: "print" %>
+  <%= stylesheet_link_tag 'dpn_swagger_engine/application' %>
+  <%= stylesheet_link_tag 'dpn_swagger_engine/reset', media: 'print' %>
+  <%= stylesheet_link_tag 'dpn_swagger_engine/print', media: 'print' %>
 
-  <%= javascript_include_tag "dpn_swagger_engine/application" %>
+  <%= javascript_include_tag 'dpn_swagger_engine/application' %>
 
   <%= csrf_meta_tags %>
 
@@ -38,7 +38,7 @@
       window.swaggerUi = new SwaggerUi({
         url: url,
         dom_id: "swagger-ui-container",
-        supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
+        supportedSubmitMethods: ["get", "post", "put", "delete", "patch"],
         onComplete: function(swaggerApi, swaggerUi){
           if(typeof initOAuth == "function") {
             initOAuth({
@@ -61,7 +61,7 @@
           log("Unable to Load SwaggerUI");
         },
         docExpansion: "none",
-        jsonEditor: true,
+        jsonEditor: false,
         // apisSorter: "alpha",
         defaultModelRendering: 'schema',
         showRequestHeaders: false
@@ -71,10 +71,8 @@
       function headerTokenAuthorization(){
         var token = encodeURIComponent($('#input_apiKey')[0].value);
         if(token && token.trim() != "") {
-            var tokenAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", "Token token=" + token, "header"));
-            window.swaggerUi.api.clientAuthorizations.add("api_key", tokenAuth);
-            // var tokenAuth = new ApiKeyAuthorization("Authorization", "Token token=" + token, "header"));
-            // window.authorizations.add("api_key", tokenAuth);
+            var tokenAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", "Token token=" + token, "header");
+            window.swaggerUi.api.clientAuthorizations.add("dpn_token", tokenAuth);
             log("added token " + token);
         }
       }
@@ -100,16 +98,13 @@
 <div id='header'>
   <div class="swagger-ui-wrap">
     <a id="logo" href="http://swagger.io">
-      <img class="logo__img" alt="swagger" height="30" width="30" src="images/logo_small.png" />
+      <%= image_tag 'dpn_swagger_engine/logo_small.png', class: 'logo__img', height: '30', width: '30', alt: 'swagger' %>
       <span class="logo__title">swagger</span>
     </a>
     <form id='api_selector'>
-      <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
-      <!--
-        <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
-        <div class='input'><a id="explore" href="#" data-sw-translate>Explore</a></div>
-      -->
-      <div id='auth_container'></div>
+      <div class='input'><input placeholder="https://raw.githubusercontent.com/dpn-admin/dpn-rest-spec/api-v2/dist/swagger.yaml" id="input_baseUrl" name="baseUrl" type="text"/></div>
+      <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
+      <!-- <div id='auth_container'></div> -->
       <div class='input'><a id="explore" class="header__btn" href="#" data-sw-translate>Explore</a></div>
     </form>
   </div>

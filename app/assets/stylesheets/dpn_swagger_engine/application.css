@@ -1,4 +1,7 @@
-/* the order matches swagger-ui dist/index.html */
+/*
+The order matches swagger-ui dist/index.html;
+Rails automatically handles .css and .css.erb files
+*/
 
 @import "typography";
 @import "reset";
