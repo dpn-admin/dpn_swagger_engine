@@ -40,7 +40,7 @@ end
 
 #### Basic HTTP Auth
 
-Set username and password in `config/initializers/swagger_engine.rb`:
+Set username and password in `config/initializers/dpn_swagger_engine.rb`:
 
 ```ruby
 SwaggerEngine.configure do |config|
@@ -56,7 +56,7 @@ end
 Set the path of your JSON files in a initializer:
 
 ```ruby
-#config/initializers/swagger_engine.rb
+#config/initializers/dpn_swagger_engine.rb
 
 SwaggerEngine.configure do |config|
   config.json_files = {
@@ -86,32 +86,35 @@ Forked from https://github.com/batdevis/swagger_engine
 SWAGGER='../swagger/swagger-ui-2.2.3/dist'
 
 # update fonts
-rm app/assets/fonts/swagger_engine/*.*
-rsync -av ${SWAGGER}/fonts/ app/assets/fonts/swagger_engine/
+rm app/assets/fonts/dpn_swagger_engine/*.*
+rsync -av ${SWAGGER}/fonts/ app/assets/fonts/dpn_swagger_engine/
 
 # update images
-rm app/assets/images/swagger_engine/*.*
-rsync -av ${SWAGGER}/images/ app/assets/images/swagger_engine/
+rm app/assets/images/dpn_swagger_engine/*.*
+rsync -av ${SWAGGER}/images/ app/assets/images/dpn_swagger_engine/
 
 # update css
-rm app/assets/stylesheets/swagger_engine/*.css
-rsync -av ${SWAGGER}/css/ app/assets/stylesheets/swagger_engine/
-# manual edits for the app/assets/stylesheets/swagger_engine/application.css
-# see also includes in app/views/layouts/swagger_engine/application.html.erb
-# see also includes in app/views/swagger_engine/swaggers/show.html.erb
+rm app/assets/stylesheets/dpn_swagger_engine/*.css
+rsync -av ${SWAGGER}/css/ app/assets/stylesheets/dpn_swagger_engine/
+# manual edits for the app/assets/stylesheets/dpn_swagger_engine/application.css
+# see also includes in app/views/layouts/dpn_swagger_engine/application.html.erb
+# see also includes in app/views/dpn_swagger_engine/swaggers/show.html.erb
+# Also, manually modify any CSS files that contain image URLs to so that images
+# can be found by the asset pipeline; move them to .css.erb files and change image URLs, e.g.
+# background: url(<%= asset_data_uri 'dpn_swagger_engine/explorer_icons.png' %>) no-repeat;
 
 # update javascripts
-rm -rf app/assets/javascripts/swagger_engine/lib
-rsync -av ${SWAGGER}/lib app/assets/javascripts/swagger_engine/
-rm -rf app/assets/javascripts/swagger_engine/lang
-rsync -av ${SWAGGER}/lang app/assets/javascripts/swagger_engine/
-rsync -av ${SWAGGER}/swagger*.js app/assets/javascripts/swagger_engine/
-rsync -av ${SWAGGER}/o2c.html app/assets/javascripts/swagger_engine/
-rsync -av ${SWAGGER}/o2c.html app/views/swagger_engine/swaggers/
-# manual edits for the app/assets/javascripts/swagger_engine/application.js
+rm -rf app/assets/javascripts/dpn_swagger_engine/lib
+rsync -av ${SWAGGER}/lib app/assets/javascripts/dpn_swagger_engine/
+rm -rf app/assets/javascripts/dpn_swagger_engine/lang
+rsync -av ${SWAGGER}/lang app/assets/javascripts/dpn_swagger_engine/
+rsync -av ${SWAGGER}/swagger*.js app/assets/javascripts/dpn_swagger_engine/
+rsync -av ${SWAGGER}/o2c.html app/assets/javascripts/dpn_swagger_engine/
+rsync -av ${SWAGGER}/o2c.html app/views/dpn_swagger_engine/swaggers/
+# manual edits for the app/assets/javascripts/dpn_swagger_engine/application.js
 
 # update views
-# manual edits for the app/views/swagger_engine/swaggers/show.html.erb
+# manual edits for the app/views/dpn_swagger_engine/swaggers/show.html.erb
 # using the code from ${SWAGGER}/index.html
 ```
 
@@ -119,5 +122,5 @@ rsync -av ${SWAGGER}/o2c.html app/views/swagger_engine/swaggers/
 
 The swagger-ui has an `api-key` field that is used for the DPN authorization
 token.  To accomplish this, there are some modifications to the
-`app/views/swagger_engine/swaggers/show.html.erb`, which add some
+`app/views/dpn_swagger_engine/swaggers/show.html.erb`, which add some
 javascript for managing the DPN authorization token.
