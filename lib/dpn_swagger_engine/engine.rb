@@ -3,7 +3,6 @@ module DpnSwaggerEngine
     isolate_namespace DpnSwaggerEngine
 
     initializer :assets do |app|
-      # Rails.application.config.assets.precompile += [
       app.config.assets.precompile += [
         'dpn_swagger_engine/print.css',
         'dpn_swagger_engine/reset.css',

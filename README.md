@@ -65,7 +65,9 @@ DpnSwaggerEngine.configure do |config|
   }
 end
 ```
-`lib/swagger/` is a good place to place them..
+`lib/swagger/` is a good place to place them.  Unless otherwise configured,
+as above, a default file is assumed to be available in
+`lib/swagger/swagger.json`
 
 ### Edit your JSON files
 

@@ -25,7 +25,7 @@ module DpnSwaggerEngine
     private
 
     def load_json_files
-      @json_files ||= DpnSwaggerEngine.configuration.json_files || { default: "#{Rails.root}/lib/dpn_swagger_engine/swagger.json" }
+      @json_files ||= DpnSwaggerEngine.configuration.json_files || { default: "#{Rails.root}/lib/swagger/swagger.json" }
     end
   end
 end
