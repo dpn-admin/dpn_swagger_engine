@@ -1,4 +1,5 @@
 module DpnSwaggerEngine
-  # Major version number matches DPN REST API version
-  VERSION = '2.0.4.rc'.freeze
+  # Version digits match swagger-ui version, with the
+  # last digit representing bug fixes or additions for this gem.
+  VERSION = '2.2.3.5'.freeze
 end
