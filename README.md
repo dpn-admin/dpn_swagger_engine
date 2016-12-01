@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/eef343c676f24c3eb03c6b4c413915f1)](https://www.codacy.com/app/DPN/dpn_swagger_engine?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dpn-admin/dpn_swagger_engine&amp;utm_campaign=Badge_Grade)
+
 # DPN SwaggerEngine
 
 Include [swagger-ui](https://github.com/swagger-api/swagger-ui) as rails engine.
